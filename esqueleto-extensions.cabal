@@ -11,6 +11,8 @@ library
                      , esqueleto >=2.6.0 && <2.8 || >=3.0.0 && <3.5
                      , geos >=0.2.2 && <0.3
                      , persistent-postgis >=1.2.0 && <1.3
-  exposed-modules:     Database.Esqueleto.Pgtrgm
+                     , time >=1.8.0 && <1.9
+  exposed-modules:     Database.Esqueleto.Datetime
+                     , Database.Esqueleto.Pgtrgm
                      , Database.Esqueleto.Postgis.Geography
                      , Database.Esqueleto.Unaccent
