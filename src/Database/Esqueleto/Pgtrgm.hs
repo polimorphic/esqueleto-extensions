@@ -3,7 +3,7 @@
 module Database.Esqueleto.Pgtrgm (similarity, wordSimilarity) where
 
 import Database.Esqueleto (SqlExpr, SqlString, Value)
-import Database.Esqueleto.Internal.Sql (unsafeSqlFunction)
+import Database.Esqueleto.Internal.Internal (unsafeSqlFunction)
 
 similarity :: (SqlString a, SqlString b)
            => SqlExpr (Value a) -> SqlExpr (Value b) -> SqlExpr (Value Double)
