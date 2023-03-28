@@ -1,6 +1,6 @@
 {-# LANGUAGE MultiParamTypeClasses, OverloadedStrings #-}
 
-module Database.Esqueleto.Replace (regexpReplace) where
+module Database.Esqueleto.String (regexpReplace) where
 
 import Database.Esqueleto (SqlExpr, SqlString, Value)
 import Database.Esqueleto.Internal.Internal (unsafeSqlFunction)

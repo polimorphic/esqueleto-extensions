@@ -15,5 +15,5 @@ library
   exposed-modules:     Database.Esqueleto.Datetime
                      , Database.Esqueleto.Pgtrgm
                      , Database.Esqueleto.Postgis.Geography
-                     , Database.Esqueleto.Replace
+                     , Database.Esqueleto.String
                      , Database.Esqueleto.Unaccent
