@@ -1,6 +1,12 @@
 {-# LANGUAGE MultiParamTypeClasses, OverloadedStrings #-}
 
-module Database.Esqueleto.Datetime (dateTrunc, dateTruncM, extractEpoch, extractEpochM, generateSeries) where
+module Database.Esqueleto.Datetime
+    ( dateTrunc
+    , dateTruncM
+    , extractEpoch
+    , extractEpochM
+    , generateSeries
+    ) where
 
 import Data.Time (UTCTime)
 import Database.Esqueleto (SqlExpr, SqlString, SqlQuery, Value)
