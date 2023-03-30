@@ -1,4 +1,4 @@
-{-# LANGUAGE MultiParamTypeClasses, OverloadedStrings #-}
+{-# LANGUAGE MultiParamTypeClasses, OverloadedStrings, TupleSections #-}
 
 module Database.Esqueleto.Datetime (dateTrunc, dateTruncM, extraEpoch, generateSeries) where
 
