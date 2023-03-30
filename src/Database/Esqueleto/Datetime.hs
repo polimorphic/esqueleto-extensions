@@ -4,7 +4,7 @@ module Database.Esqueleto.Datetime (dateTrunc, dateTruncM, extractEpoch, generat
 
 import Data.Time (UTCTime)
 import Database.Esqueleto (SqlExpr, SqlString, SqlQuery, Value)
-import Database.Esqueleto.Internal.Internal (unsafeSqlBinOp, unsafeSqlCastAs, unsafeSqlFunction)
+import Database.Esqueleto.Internal.Internal (unsafeSqlBinOp, unsafeSqlCastAs, unsafeSqlFunction, val)
 
 dateTrunc :: (SqlString a)
            => SqlExpr (Value a) -> SqlExpr (Value UTCTime) -> SqlExpr (Value UTCTime)
