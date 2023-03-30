@@ -1,10 +1,17 @@
 {-# LANGUAGE MultiParamTypeClasses, OverloadedStrings #-}
 
-module Database.Esqueleto.Datetime (dateTrunc, dateTruncM, generateSeries) where
+module Database.Esqueleto.Datetime
+    ( dateTrunc
+    , dateTruncM
+    , extractEpoch
+    , extractEpochM
+    , generateSeries
+    ) where
 
 import Data.Time (UTCTime)
 import Database.Esqueleto (SqlExpr, SqlString, SqlQuery, Value)
-import Database.Esqueleto.Internal.Internal (unsafeSqlCastAs, unsafeSqlFunction)
+import Database.Esqueleto.Internal.Internal
+    (unsafeSqlBinOp, unsafeSqlCastAs, unsafeSqlFunction, val)
 
 dateTrunc :: (SqlString a)
            => SqlExpr (Value a) -> SqlExpr (Value UTCTime) -> SqlExpr (Value UTCTime)
@@ -16,6 +23,14 @@ dateTruncM :: (SqlString a)
            -> SqlExpr (Value (Maybe UTCTime))
 dateTruncM a b = unsafeSqlFunction "date_trunc" (a, b)
 infixl 2 `dateTruncM`
+
+extractEpoch :: SqlExpr (Value UTCTime) -> SqlExpr (Value Int)
+extractEpoch t = unsafeSqlFunction "extract"
+    $ unsafeSqlBinOp " from " (val "epoch" :: SqlExpr (Value String)) t
+
+extractEpochM :: SqlExpr (Value (Maybe UTCTime)) -> SqlExpr (Value (Maybe Int))
+extractEpochM t = unsafeSqlFunction "extract"
+    $ unsafeSqlBinOp " from " (val "epoch" :: SqlExpr (Value String)) t
 
 generateSeries ::(SqlString a) =>  SqlExpr (Value UTCTime) -> SqlExpr (Value UTCTime)
                -> SqlExpr (Value a) -> SqlQuery (SqlExpr (Value UTCTime))
