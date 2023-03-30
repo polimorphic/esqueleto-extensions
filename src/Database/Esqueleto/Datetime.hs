@@ -26,7 +26,7 @@ infixl 2 `dateTruncM`
 extractEpoch :: SqlExpr (Value UTCTime) -> SqlExpr (Value Int)
 extractEpoch t = unsafeSqlFunction "extract" (unsafeSqlBinOp " from " (val "epoch" :: SqlExpr (Value String)) t)
 
-extractEpochM :: SqlExpr (Value (Maybe UTCTime)) -> SqlExpr (Value Int)
+extractEpochM :: SqlExpr (Value (Maybe UTCTime)) -> SqlExpr (Value (Maybe Int))
 extractEpochM t = unsafeSqlFunction "extract" (unsafeSqlBinOp " from " (val "epoch" :: SqlExpr (Value String)) t)
 
 generateSeries ::(SqlString a) =>  SqlExpr (Value UTCTime) -> SqlExpr (Value UTCTime)
