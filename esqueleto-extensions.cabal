@@ -1,5 +1,5 @@
 name:                esqueleto-extensions
-version:             0.1.5.0
+version:             0.1.6.0
 build-type:          Simple
 cabal-version:       >=1.10
 
@@ -11,6 +11,7 @@ library
                      , esqueleto >=2.6.0 && <2.8 || >=3.0.0 && <3.6
                      , geos >=0.2.2 && <0.6
                      , persistent >=2.13.2 && <2.14
+                     , persistent-pgvector >=0.0.0 && <0.1
                      , persistent-postgis >=1.2.0 && <1.3
                      , time >=1.8.0 && <1.10
   exposed-modules:     Database.Esqueleto.Conditional
@@ -19,3 +20,4 @@ library
                      , Database.Esqueleto.Postgis.Geography
                      , Database.Esqueleto.String
                      , Database.Esqueleto.Unaccent
+                     , Database.Esqueleto.Vector
